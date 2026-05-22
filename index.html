@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button onclick="toggleDarkMode()" class="dark-mode-btn">🌙 Dark</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>To-Do List</h1>
+        </div>
+
+        <input type="text" id="newTask" placeholder="Add a new task...">
+        <button onclick="addTask()">+ Add</button>
+
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterTasks('all')" data-filter="all">
+                    All
+                </button>
+                <button class="filter-btn" onclick="filterTasks('completed')" data-filter="completed">
+                    Completed
+                </button>
+                <button class="filter-btn" onclick="filterTasks('pending')" data-filter="pending">
+                    Pending
+                </button>
+            </div>
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- Custom Popup Modal -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-modal">
+            <p id="popupMessage"></p>
+            <button onclick="closePopup()" class="popup-btn">OK</button>
+        </div>
+    </div>
+
+    <!-- Custom Confirm Modal -->
+    <div id="confirmOverlay" class="popup-overlay">
+        <div class="popup-modal">
+            <p id="confirmMessage"></p>
+            <div class="confirm-buttons">
+                <button onclick="confirmYes()" class="popup-btn yes-btn">Yes</button>
+                <button onclick="confirmNo()" class="popup-btn no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Edit Modal -->
+    <div id="editOverlay" class="popup-overlay">
+        <div class="popup-modal">
+            <p id="editMessage"></p>
+            <input type="text" id="editInput">
+            <button onclick="saveEdit()" class="popup-btn save-btn">Save</button>
+            <button onclick="closeEdit()" class="popup-btn cancel-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
